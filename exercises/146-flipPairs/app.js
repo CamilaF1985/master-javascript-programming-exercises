@@ -1,7 +1,13 @@
 function flipPairs(input) {
-    // your code here
-    
-}
+    let result = '';
+    for (let i = 0; i < input.length; i += 2) {
+      const pair = input.slice(i, i + 2);
+  
+      result += pair.split('').reverse().join('');
+    }
+  
+    return result;
+  }
 
 let input = "Can you see what this is about?";
 let output = flipPairs(input);

@@ -1,8 +1,15 @@
 function getElementOfArrayProperty(obj, key, index) {
-    // your code here
-
-}
-
+    if (
+      obj.hasOwnProperty(key) &&
+      Array.isArray(obj[key]) &&
+      index >= 0 &&
+      index < obj[key].length
+    ) {
+      return obj[key][index];
+    }
+    return undefined;
+  }
+  
 let obj = {
     key: ['Jamil', 'Albrey']
 };

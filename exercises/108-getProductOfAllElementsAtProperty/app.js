@@ -1,6 +1,12 @@
 function getProductOfAllElementsAtProperty(obj, key) {
-    // your code here
-    
+  if (
+    obj.hasOwnProperty(key) &&
+    Array.isArray(obj[key]) &&
+    obj[key].length > 0
+  ) {
+    return obj[key].reduce((product, element) => product * element, 1);
+  }
+  return 0;
 }
 
 let obj = {

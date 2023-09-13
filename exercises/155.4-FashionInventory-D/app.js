@@ -1,3 +1,30 @@
+function getLaceNameDataForShoes(inventory) {
+  const result = [];
+
+  for (const designer of inventory) {
+    const designerName = designer.name;
+    const shoes = designer.shoes;
+
+    for (const shoe of shoes) {
+      const shoeName = shoe.name;
+      const words = shoeName.split(' ');
+
+      for (let i = 0; i < words.length; i++) {
+        const word = words[i].toLowerCase();
+        if (word.includes('lace') || word.includes('laced')) {
+          result.push({
+            nameWords: words,
+            targetWordIndex: i,
+          });
+          break;
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
 let currentInventory = [
   {
     name: 'Brunello Cucinelli',
@@ -16,10 +43,5 @@ let currentInventory = [
     ]
   }
 ];
-
-function getLaceNameDataForShoes(inventory) {
-    // your code here
-    
-}
 
 console.log(getLaceNameDataForShoes(currentInventory));
